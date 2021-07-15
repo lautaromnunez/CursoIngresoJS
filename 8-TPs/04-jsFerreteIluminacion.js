@@ -16,22 +16,108 @@ function CalcularPrecio ()
     let marcaLamparitas;
     let descuento;
     let precioSinDescuento;
-
+    let ingresosBrutos;
+    
     cantidadLamparitas = document.getElementById("txtIdCantidad").value;
     cantidadLamparitas = parseInt(cantidadLamparitas)
     marcaLamparitas = document.getElementById("Marca"). value;
     precioFinal = document.getElementById("txtIdprecioDescuento").value;
+    ingresosBrutos = (precioFinal * 10)/100
 
+    
     if(cantidadLamparitas>5)
     {
         precioSinDescuento = cantidadLamparitas * precioInicial;
         descuento = (precioSinDescuento * 50) /100;
         precioFinal = precioSinDescuento - descuento;
-        document.getElementById("txtIdprecioDescuento").value = precioFinal
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
 
     }
     else
     {
+        if(cantidadLamparitas == 5)
+        {
+            if(marcaLamparitas=="ArgentinaLuz")
+            {
+                precioSinDescuento = cantidadLamparitas * precioInicial;
+                descuento = (precioSinDescuento *40)/100;
+                precioFinal = precioSinDescuento - descuento;
+                document.getElementById("txtIdprecioDescuento").value = precioFinal;
+            }
+            else
+            {
+                if(cantidadLamparitas!="ArgentinaLuz")
+                {
+                    precioSinDescuento = cantidadLamparitas * precioInicial;
+                    descuento = (precioSinDescuento *30)/100;
+                    precioFinal = precioSinDescuento - descuento;
+                    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                }
+            }
+        }
+        else
+        {
+            if(cantidadLamparitas==4)
+            {
+                if(marcaLamparitas =="ArgentinaLuz" || marcaLamparitas=="FelipeLamparas")
+                {
+                    precioSinDescuento = cantidadLamparitas * precioInicial;
+                    descuento = (precioSinDescuento *25)/100;
+                    precioFinal = precioSinDescuento - descuento;
+                    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                }
+                else
+                {
+                    if(marcaLamparitas =!"ArgentinaLuz" || "FelipeLamparas")
+                    {
+                        precioSinDescuento = cantidadLamparitas * precioInicial;
+                        descuento = (precioSinDescuento *20)/100;
+                        precioFinal = precioSinDescuento - descuento;
+                        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                    }
+                }
+            }
+            else
+            {
+                if(cantidadLamparitas == 3)
+                {
+                    if(marcaLamparitas == "ArgentinaLuz")
+                    {
+                        precioSinDescuento = cantidadLamparitas*precioInicial;
+                        descuento = (precioSinDescuento * 15)/100;
+                        precioFinal = precioSinDescuento - descuento;
+                        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                    }
+                    else
+                    {
+                        if(marcaLamparitas == "FelipeLamparas")
+                        {
+                            precioSinDescuento = cantidadLamparitas*precioInicial;
+                            descuento = (precioSinDescuento * 10)/100;
+                            precioFinal = precioSinDescuento - descuento;
+                            document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                        }
+                        else
+                        {
+                            if(marcaLamparitas =!"ArgentinaLuz" || "FelipeLamparas")
+                            {
+                                precioSinDescuento = cantidadLamparitas*precioInicial;
+                                descuento = (precioSinDescuento * 5)/100;
+                                precioFinal = precioSinDescuento - descuento;
+                                document.getElementById("txtIdprecioDescuento").value = precioFinal;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(precioFinal > 120)
+    {
+        ingresosBrutos = (precioFinal * 10)/100;
+        precioFinal = ingresosBrutos + precioFinal;
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
         
+        alert("IIBB Usted pago " + ingresosBrutos);   
     }
 }
