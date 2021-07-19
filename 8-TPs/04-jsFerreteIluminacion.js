@@ -184,3 +184,79 @@ if(precioFinal > 120)
         alert("IIBB Usted pago " + ingresosBrutos);   
     }
 }*/
+
+function CalcularPrecio ()
+{
+    const precioInicial = 35;
+    let cantidadLamparitas;
+    let marcaLamparitas;
+    let descuento;
+    let precioSinDescuento;
+    let precioFinal;
+    let ingresosBrutos;
+
+    cantidadLamparitas =document.getElementById("txtIdCantidad").value;
+    cantidadLamparitas = parseInt(cantidadLamparitas);
+    marcaLamparitas = document.getElementById("Marca"). value;
+    precioFinal = document.getElementById("txtIdprecioDescuento").value;
+    precioSinDescuento = cantidadLamparitas * precioInicial;
+
+    switch(cantidadLamparitas)
+    {
+        case 5:
+            switch(marcaLamparitas)
+            {
+                case "ArgentinaLuz":
+                descuento =(precioSinDescuento*40) /100;
+                break;
+                default :
+                descuento =(precioSinDescuento*30) /100;
+            }
+        break;
+        case 4:
+            switch(marcaLamparitas)
+            {
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                descuento =(precioSinDescuento*25) /100;
+                break;
+                default:
+                descuento =(precioSinDescuento*20) /100;
+                break;
+            }
+        break;
+        case 3:
+            switch(marcaLamparitas)
+            {
+                case "ArgentinaLuz":
+                descuento =(precioSinDescuento*15) /100;
+                break;
+                case "FelipeLamparas":
+                descuento =(precioSinDescuento*10) /100;
+                break;
+                default:
+                descuento =(precioSinDescuento*5) /100;
+                break;
+            }
+        break;
+
+        case 1:
+        case 2:
+        descuento =(precioSinDescuento*0) /100;
+        break;
+        default:
+        descuento =(precioSinDescuento*50) /100;
+        break;
+    }
+    precioFinal = precioSinDescuento - descuento;
+    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+    if(precioFinal > 120)
+    {
+        ingresosBrutos = (precioFinal * 10)/100
+        precioFinal = ingresosBrutos +precioFinal;
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+        
+        alert("IIBB Usted pago " + ingresosBrutos);   
+    }
+}
