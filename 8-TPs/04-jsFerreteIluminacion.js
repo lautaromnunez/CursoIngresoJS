@@ -101,7 +101,7 @@ function CalcularPrecio ()
 }*/
 
 //switch + if
-function CalcularPrecio ()
+/*function CalcularPrecio ()
 {
     const precioInicial = 35;
     let cantidadLamparitas;
@@ -183,4 +183,4 @@ if(precioFinal > 120)
         
         alert("IIBB Usted pago " + ingresosBrutos);   
     }
-}
+}*/
