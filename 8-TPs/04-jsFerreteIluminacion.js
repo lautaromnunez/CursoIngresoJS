@@ -5,7 +5,7 @@ B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuent
 C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos en informar del impuesto con el siguiente mensaje:
- ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
+ ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. */
 
 
 function CalcularPrecio () 
@@ -21,7 +21,6 @@ function CalcularPrecio ()
     cantidadLamparitas = document.getElementById("txtIdCantidad").value;
     cantidadLamparitas = parseInt(cantidadLamparitas)
     marcaLamparitas = document.getElementById("Marca"). value;
-    precioFinal = document.getElementById("txtIdprecioDescuento").value;
     precioSinDescuento = cantidadLamparitas * precioInicial;
 
     
@@ -39,10 +38,7 @@ function CalcularPrecio ()
             }
             else
             {
-                if(cantidadLamparitas!="ArgentinaLuz")
-                {
-                    descuento = (precioSinDescuento*30)/100;
-                }
+                descuento = (precioSinDescuento*30)/100;
             }
         }
         else
@@ -54,11 +50,8 @@ function CalcularPrecio ()
                     descuento = (precioSinDescuento*25)/100;
                 }
                 else
-                {
-                    if(marcaLamparitas =!"ArgentinaLuz" || "FelipeLamparas")
-                    {                       
-                        descuento = (precioSinDescuento*20)/100;                      
-                    }
+                {                   
+                     descuento = (precioSinDescuento*20)/100;                      
                 }
             }
             else
@@ -77,10 +70,7 @@ function CalcularPrecio ()
                         }
                         else
                         {
-                            if(marcaLamparitas =!"ArgentinaLuz" || "FelipeLamparas")
-                            {
-                                descuento = (precioSinDescuento*5)/100;
-                            }
+                           descuento = (precioSinDescuento*5)/100;
                         }
                     }
                 }
@@ -98,7 +88,7 @@ function CalcularPrecio ()
         
         alert("IIBB Usted pago " + ingresosBrutos);   
     }
-}*/
+}
 
 //switch + if
 /*function CalcularPrecio ()
@@ -185,7 +175,7 @@ if(precioFinal > 120)
     }
 }*/
 
-function CalcularPrecio ()
+/*function CalcularPrecio ()
 {
     const precioInicial = 35;
     let cantidadLamparitas;
@@ -259,4 +249,4 @@ function CalcularPrecio ()
         
         alert("IIBB Usted pago " + ingresosBrutos);   
     }
-}
+}*/
